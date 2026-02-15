@@ -106,9 +106,11 @@ wrote extracted data to "stardate.txt".
 └─$ cat stardate.txt                                                     
 56inrkS7AcAXatqrFM
 ```
-Based on `https://www.dcode.fr/cipher-identifier` result, I found `base58` has shown potention result, can be access through `https://www.dcode.fr/base-58-cipher`. Since the result is written in reversed format, it can be fixed with `cyberchef` tool, by combining `from base58 + reverse`, and we get the result.
+Based on `https://www.dcode.fr/cipher-identifier` result, I found `base58` has shown potention result, can be access through `https://www.dcode.fr/base-58-cipher`. Since the result is written in reversed format, it can be fixed with `cyberchef` tool, by combining `from base58 + reverse`, and we get the result for ***challange (1)***.
 
 Decode tool ***cyberchef***
 ```
 docker run -it -p 8444:80 -d ghcr.io/gchq/cyberchef:latest
 ```
+
+As the second clue told us that location is the name of the challange, I found this online tool `https://www.dcode.fr/spectral-analysis`, and able to solve the `2` and `3` challanges, I got the GPS coordinate and name of the location based on link provided on the `scenario`.

@@ -113,4 +113,4 @@ Decode tool ***cyberchef***
 docker run -it -p 8444:80 -d ghcr.io/gchq/cyberchef:latest
 ```
 
-As the second clue told us that location is the name of the challange, I found this online tool `https://www.dcode.fr/spectral-analysis`, and able to solve the `2` and `3` challanges, I got the GPS coordinate and name of the location based on link provided on the `scenario`.
+As the second clue told us that location is the name of the challange, I found this online tool `https://www.dcode.fr/spectral-analysis`, and able to solve the `2` and `3` challanges by decoded the `white.wav` file, I got the GPS coordinate and name of the location based on link provided on the `scenario`.

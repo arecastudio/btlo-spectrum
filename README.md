@@ -16,10 +16,6 @@ I have downloaded the evidence file into assets directory, and mounted it as a d
 └─$ ls /mnt 
                                                                                                                       
 ┌──(kali㉿kali)-[~/Downloads/btlo-spectrum]
-└─$ mkdir /mnt/btlo-spectrum                                                 
-mkdir: cannot create directory '/mnt/btlo-spectrum': Permission denied
-                                                                                                                      
-┌──(kali㉿kali)-[~/Downloads/btlo-spectrum]
 └─$ sudo mkdir /mnt/btlo-spectrum
 [sudo] password for kali: 
                                                                                                                       

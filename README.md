@@ -74,6 +74,30 @@ Archive:  noise_samples.zip
   inflating: noise/white.wav 
 ```
 
+Use `exiftool` to extract each pictures' metadata
+```
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum/assets]
+└─$ find ./photos|grep -E '.*\.jpe?g'|while read p;do echo;echo "Filename: $p";exiftool "$p" 2>/dev/null |tee -a ./photos/exif.txt;done 
+```
+By looking at the exif meta file, I found two interesting informations
+```
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum/assets]
+└─$ cat ./photos/exif.txt|sort|uniq -c|sort -n|grep -iE 'artist|location'
+      1 Artist                          : steghide password: cheese on toast
+      1 Location                        : name of the challenge
+```
+By using the provided informations, I have managed to extract hidden stings out of `white.wav` file
+```
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum/assets]
+└─$ steghide extract -sf ./noise/white.wav   
+Enter passphrase: 
+wrote extracted data to "stardate.txt".
+                                                                                                                      
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum/assets]
+└─$ cat stardate.txt                                                     
+56inrkS7AcAXatqrFM
+```
+
 Decode tool ***cyberchef***
 ```
 docker run -it -p 8444:80 -d ghcr.io/gchq/cyberchef:latest

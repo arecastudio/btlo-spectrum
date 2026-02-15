@@ -43,4 +43,38 @@ photos/london_bridge.jpeg
 sent 28,695,214 bytes  received 126 bytes  57,390,680.00 bytes/sec
 total size is 28,687,811  speedup is 1.00
 
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum]
+└─$ sudo umount -r /mnt/btlo-spectrum
+
+```
+
+The `noise_samples.zip` file was protected with password that I managed to crack with `john`
+```
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum/assets]
+└─$ john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (PKZIP [32/64])
+No password hashes left to crack (see FAQ)
+                                                                                                                      
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum/assets]
+└─$ john --show hash.txt                    
+noise_samples.zip:redacted_pass::noise_samples.zip:location.wav, brown.wav, wahwah.wav, white.wav:noise_samples.zip
+
+1 password hash cracked, 0 left
+```
+Then we found list of `WAV` file on the protected zip file
+```
+┌──(kali㉿kali)-[~/Downloads/btlo-spectrum/assets]
+└─$ unzip noise_samples.zip -d noise                         
+Archive:  noise_samples.zip
+[noise_samples.zip] brown.wav password: 
+  inflating: noise/brown.wav         
+  inflating: noise/location.wav      
+  inflating: noise/wahwah.wav        
+  inflating: noise/white.wav 
+```
+
+Decode tool ***cyberchef***
+```
+docker run -it -p 8444:80 -d ghcr.io/gchq/cyberchef:latest
 ```

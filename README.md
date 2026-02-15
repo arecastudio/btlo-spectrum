@@ -1,9 +1,18 @@
 # btlo-spectrum
 
 ## Scenario
+```
 Scotland yard have intercepted information about one of the biggest drug deals to go down in the city of London. Someone we believe is linked to the deal was arrested. The only item they had in their possession was a USB thumb drive. Unfortunately, one of our junior analysts was unable to find anything of interest. Before we let this suspect go, we would like one of our DF experts to see if they can find anything about the deal before it goes down. Can you find out where and when the deal is expected to go down?
 
 - Note: Once you have the coordinates, you can use https://www.gps-coordinates.net/ to view the location.
+```
+### Challenge
+```
+1. What time is the meeting happening? (4 points)
+2. What are the supposed coordinates for the deal? (4 points) Format: xx.xxxx, yy.yyyy
+3. Looking into these coordinates, what is the name of this location? (2 points)
+```
+
 ---
 
 I have downloaded the evidence file into assets directory, and mounted it as a drive on my local host
@@ -97,6 +106,7 @@ wrote extracted data to "stardate.txt".
 └─$ cat stardate.txt                                                     
 56inrkS7AcAXatqrFM
 ```
+Based on `https://www.dcode.fr/cipher-identifier` result, I found `base58` has shown potention result, can be access through `https://www.dcode.fr/base-58-cipher`. Since the result is written in reversed format, it can be fixed with `cyberchef` tool, by combining `from base58 + reverse`, and we get the result.
 
 Decode tool ***cyberchef***
 ```
